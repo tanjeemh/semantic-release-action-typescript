@@ -1,0 +1,165 @@
+---
+name: semantic-release-typescript-package
+description: GitHub Action to semantically release your TypeScript Node.js package
+author: EricCrosson
+branding:
+  icon: package
+  color: orange
+
+# Use a composite action for access to github.action_path
+# (which is only supported in composite actions)
+
+inputs:
+  node-versions:
+    description: Node.js
+    # Limitation: https://github.com/community/community/discussions/11692
+    type: string
+    default: "['lts/-2', 'lts/-1', 'lts/*']"
+  test-command:
+    description: Command used to test your TypeScript program
+    required: false
+    type: string
+    default: npm test
+  allow-postinstall-scripts:
+    description: Flag to allow post-install scripts
+    type: boolean
+    default: false
+  npm-token:
+    description: API token for writing to your npm registry
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        # Fetch all history and tags for calculating next semantic version
+        fetch-depth: 0
+
+    - name: Configure Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: lts/*
+        check-latest: true
+        cache: npm
+
+    - name: Cache host npm dependencies
+      uses: actions/cache@v3
+      id: cache-host-node-modules
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-host-${{ hashFiles('**/package-lock.json') }}
+
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'true' && steps.cache-host-node-modules.outputs.cache-hit != 'true'
+      run: |
+        : install npm dependencies
+        npm ci  --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
+      env:
+        # Negate the logic here because the value after && but not be falsy, otherwise the || will also execute
+        ALLOW_POSTINSTALL_SCRIPTS: ${{ !inputs.allow-postinstall-scripts && '--ignore-scripts' || '' }}
+      shell: bash
+
+    # Serves as a type-checking opportunity, and allows the tests to run on pre-compiled JavaScript
+    - run: |
+        : compile TypeScript
+        npm run build
+      shell: bash
+
+    - run: |
+        : test
+        ${{ inputs.test-command }}
+      shell: bash
+
+    - name: Install is-semantic-release-configured
+      uses: EricCrosson/install-github-release-binary@v1
+      with:
+        repo: EricCrosson/is-semantic-release-configured@v1
+
+    # Terminology:
+    #
+    # - The "host" is the repository calling this action.
+    # - The "action" is this action.
+    #
+    # When we use the action's semantic-release configuration,
+    # install node_modules into an ephemeral .typescript-action directory.
+    # Add this directory and the semantic-release manifest to the global gitignore.
+    #
+    # This has the following benefits:
+    #
+    # - @semantic-release/changelog does not try to commit the npm package manifest
+    # - npm does not include git-ignored files in the package upload
+
+    - id: is-semantic-release-configured
+      run: |
+        : test for semantic-release configuration
+        if is-semantic-release-configured; then
+          echo "::debug::Detected semantic-release configuration, using host repository's configuration"
+          echo "host-configuration=true" >> "$GITHUB_OUTPUT"
+          echo "semantic_release=./node_modules/.bin/semantic-release" >> "$GITHUB_ENV"
+        else
+          echo "::debug::Did not detect semantic-release configuration, using this action's built-in configuration"
+          echo "host-configuration=false" >> "$GITHUB_OUTPUT"
+          echo "semantic_release=$GITHUB_WORKSPACE/.typescript-action/node_modules/.bin/semantic-release" >> "$GITHUB_ENV"
+          echo "node_workdir=$GITHUB_WORKSPACE/.typescript-action/" >> "$GITHUB_ENV"
+          mkdir -p "$GITHUB_WORKSPACE/.typescript-action/"
+        fi
+      shell: bash
+
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false'
+      run: |
+        : configure Node.js path
+        echo NODE_PATH="$node_workdir${NODE_PATH:+":$NODE_PATH"}" >> "$GITHUB_ENV"
+      shell: bash
+
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false'
+      run: |
+        : configure git to ignore semantic-release manifest
+        mkdir -p "$HOME/.config/git"
+        echo "/.releaserc.json" >> "$HOME/.config/git/ignore"
+        echo "/.typescript-action/" >> "$HOME/.config/git/ignore"
+      shell: bash
+
+    # If there is a .npmignore file, npm ignores the .gitignore, so add the ignore rules there too.
+    # https://docs.npmjs.com/cli/v9/using-npm/developers#keeping-files-out-of-your-package
+    #
+    # Limitation: only supports a .npmignore in the root of your package (may not suffice for monorepos)
+    #
+    # The `if` clause relies on hashFiles returning an empty string when the target file does not exist.
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false' && hashFiles('.npmignore') != ''
+      run: |
+        : configure npm to ignore semantic-release manifest
+        echo "/.releaserc.json" >> ".npmignore"
+        echo "/.typescript-action/" >> ".npmignore"
+      shell: bash
+
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false'
+      run: |
+        : install semantic-release manifest
+        cp "${{ github.action_path }}/package.json" "${{ env.node_workdir }}/package.json"
+        cp "${{ github.action_path }}/package-lock.json" "${{ env.node_workdir }}/package-lock.json"
+        cp "${{ github.action_path }}/.releaserc.json" ".releaserc.json"
+      shell: bash
+
+    - name: Cache action npm dependencies
+      if: steps.is-semantic-release-configured.outputs.host-configuration == 'false'
+      uses: actions/cache@v3
+      id: cache-action-node-modules
+      with:
+        path: .typescript-action/node_modules
+        key: ${{ runner.os }}-node-action-${{ hashFiles('.typescript-action/package-lock.json') }}
+
+    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false' && steps.cache-action-node-modules.outputs.cache-hit != 'true'
+      run: |
+        : install action npm dependencies
+        npm ci --ignore-scripts --loglevel error
+      working-directory: ${{ env.node_workdir }}
+      shell: bash
+
+    - run: |
+        : invoke semantic-release
+        ${semantic_release}
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+        NPM_TOKEN: ${{ inputs.npm-token }}
+      shell: bash

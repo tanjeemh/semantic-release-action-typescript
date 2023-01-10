@@ -1,0 +1,46 @@
+---
+name: Release
+
+on:
+  workflow_call:
+    inputs:
+      node-versions:
+        description: Node.js
+        # Limitation: https://github.com/community/community/discussions/11692
+        type: string
+        default: "['lts/-2', 'lts/-1', 'lts/*']"
+      test-command:
+        description: Command used to test your TypeScript program
+        required: false
+        type: string
+        default: npm test
+      allow-postinstall-scripts:
+        description: Flag to allow post-install scripts
+        type: boolean
+        default: false
+    secrets:
+      npm-token:
+        description: API token for writing to your npm registry
+        required: true
+
+# Only allow one release workflow to execute at a time, since each release
+# workflow uses shared resources (git tags, package registries)
+concurrency:
+  group: ${{ github.workflow }}
+
+env:
+  RUST_BACKTRACE: 1
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Release
+        uses: EricCrosson/typescript-action/semantic-release@v1
+        with:
+          node-versions: ${{ inputs.node-versions }}
+          test-command: ${{ inputs.test-command }}
+          allow-postinstall-scripts: ${{ inputs.allow-postinstall-scripts }}
+          npm-token: ${{ secrets.npm-token }}
