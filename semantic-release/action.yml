@@ -10,11 +10,10 @@ branding:
 # (which is only supported in composite actions)
 
 inputs:
-  node-versions:
+  node-version:
     description: Node.js
-    # Limitation: https://github.com/community/community/discussions/11692
     type: string
-    default: "['lts/-2', 'lts/-1', 'lts/*']"
+    default: lts/*
   test-command:
     description: Command used to test your TypeScript program
     required: false
@@ -40,7 +39,7 @@ runs:
     - name: Configure Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: lts/*
+        node-version: ${{ inputs.node-version }}
         check-latest: true
         cache: npm
 
