@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/EricCrosson/typescript-action/compare/v1.0.1...v1.0.2) (2023-01-10)
+
+
+### Bug Fixes
+
+* always install host node_modules ([ca45c56](https://github.com/EricCrosson/typescript-action/commit/ca45c56cd94148c6376fb49da7d788b7933325a1))
+
 ## [1.0.1](https://github.com/EricCrosson/typescript-action/compare/v1.0.0...v1.0.1) (2023-01-10)
 
 
