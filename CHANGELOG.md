@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/EricCrosson/typescript-action/compare/v1.0.4...v1.0.5) (2023-01-10)
+
+
+### Bug Fixes
+
+* add --if-present to all npm script invocations ([2e5ee30](https://github.com/EricCrosson/typescript-action/commit/2e5ee30d31cc12f9e8e0b1a49f1b30eefb62506c))
+
 ## [1.0.4](https://github.com/EricCrosson/typescript-action/compare/v1.0.3...v1.0.4) (2023-01-10)
 
 
