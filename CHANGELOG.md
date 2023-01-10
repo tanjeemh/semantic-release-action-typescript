@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/EricCrosson/typescript-action/compare/v1.0.3...v1.0.4) (2023-01-10)
+
+
+### Bug Fixes
+
+* use correct input name ([51a3e96](https://github.com/EricCrosson/typescript-action/commit/51a3e9627dc2651e09a7493883dabe90c150b22c))
+
 ## [1.0.3](https://github.com/EricCrosson/typescript-action/compare/v1.0.2...v1.0.3) (2023-01-10)
 
 
