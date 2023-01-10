@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/EricCrosson/typescript-action/compare/v1.0.2...v1.0.3) (2023-01-10)
+
+
+### Bug Fixes
+
+* use a single node version for the release workflow ([cac9d3c](https://github.com/EricCrosson/typescript-action/commit/cac9d3c3dcaead4a2995f7f483aa2ecae7300686))
+
 ## [1.0.2](https://github.com/EricCrosson/typescript-action/compare/v1.0.1...v1.0.2) (2023-01-10)
 
 
