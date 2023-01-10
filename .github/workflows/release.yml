@@ -39,7 +39,7 @@ jobs:
       - name: Release
         uses: EricCrosson/typescript-action/semantic-release@v1
         with:
-          node-versions: ${{ inputs.node-version }}
+          node-version: ${{ inputs.node-version }}
           test-command: ${{ inputs.test-command }}
           prevent-postinstall-scripts: ${{ inputs.prevent-postinstall-scripts }}
           npm-token: ${{ secrets.npm-token }}
