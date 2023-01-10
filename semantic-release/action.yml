@@ -20,10 +20,10 @@ inputs:
     required: false
     type: string
     default: npm test
-  allow-postinstall-scripts:
-    description: Flag to allow post-install scripts
+  prevent-postinstall-scripts:
+    description: Flag to prevent post-install scripts
     type: boolean
-    default: false
+    default: true
   npm-token:
     description: API token for writing to your npm registry
     required: true
@@ -56,8 +56,7 @@ runs:
         : install npm dependencies
         npm ci  --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
       env:
-        # Negate the logic here because the value after && but not be falsy, otherwise the || will also execute
-        ALLOW_POSTINSTALL_SCRIPTS: ${{ !inputs.allow-postinstall-scripts && '--ignore-scripts' || '' }}
+        ALLOW_POSTINSTALL_SCRIPTS: ${{ inputs.prevent-postinstall-scripts && '--ignore-scripts' || '' }}
       shell: bash
 
     # Serves as a type-checking opportunity, and allows the tests to run on pre-compiled JavaScript
