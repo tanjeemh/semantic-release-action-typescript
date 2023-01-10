@@ -51,7 +51,7 @@ runs:
         path: node_modules
         key: ${{ runner.os }}-node-host-${{ hashFiles('**/package-lock.json') }}
 
-    - if: steps.is-semantic-release-configured.outputs.host-configuration == 'true' && steps.cache-host-node-modules.outputs.cache-hit != 'true'
+    - if: steps.cache-host-node-modules.outputs.cache-hit != 'true'
       run: |
         : install npm dependencies
         npm ci  --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
