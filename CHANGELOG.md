@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/EricCrosson/typescript-action/compare/v1.0.5...v1.0.6) (2023-01-12)
+
+
+### Bug Fixes
+
+* **deps:** upgrade install-github-release-binary to v2 ([34dd4d4](https://github.com/EricCrosson/typescript-action/commit/34dd4d48eb837555cc600a348e2588668594ed75))
+
 ## [1.0.5](https://github.com/EricCrosson/typescript-action/compare/v1.0.4...v1.0.5) (2023-01-10)
 
 
