@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/semantic-release-action/typescript/compare/v1.0.8...v1.1.0) (2023-01-14)
+
+
+### Features
+
+* add runtime flag to control semantic-release git ([9b1f384](https://github.com/semantic-release-action/typescript/commit/9b1f3846cd3879f4424a9c89f85a1c36d76fe7d5)), closes [#3](https://github.com/semantic-release-action/typescript/issues/3)
+
 ## [1.0.8](https://github.com/semantic-release-action/typescript/compare/v1.0.7...v1.0.8) (2023-01-14)
 
 
