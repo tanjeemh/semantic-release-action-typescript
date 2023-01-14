@@ -66,7 +66,7 @@ Runtime flag to control execution of [post-install scripts].
 
 ## Release
 
-Continous deployments for TypeScript packages are provided by `.github/workflows/release.yml`.
+Continuous deployments for TypeScript packages are provided by `.github/workflows/release.yml`.
 
 Each deploy:
 
@@ -121,6 +121,8 @@ jobs:
 Runtime option controlling the use of [@semantic-release/git].
 Set to `false` to prevent semantic-release from pushing artifacts to your repository.
 This may be required with certain repository settings, for example when requiring signed commits.
+
+[@semantic-release/git]: https://github.com/semantic-release/git
 
 ### Secrets
 
