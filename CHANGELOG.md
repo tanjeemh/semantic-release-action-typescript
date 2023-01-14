@@ -1,55 +1,55 @@
-## [1.0.7](https://github.com/EricCrosson/typescript-action/compare/v1.0.6...v1.0.7) (2023-01-14)
+## [1.0.7](https://github.com/semantic-release-action/typescript/compare/v1.0.6...v1.0.7) (2023-01-14)
 
 
 ### Bug Fixes
 
-* **deps:** migrate to semantic-release-action/github-actions ([86c03b6](https://github.com/EricCrosson/typescript-action/commit/86c03b64248eae542967674db021255b4f686f6f))
+* **deps:** migrate to semantic-release-action/github-actions ([86c03b6](https://github.com/semantic-release-action/typescript/commit/86c03b64248eae542967674db021255b4f686f6f))
 
-## [1.0.6](https://github.com/EricCrosson/typescript-action/compare/v1.0.5...v1.0.6) (2023-01-12)
-
-
-### Bug Fixes
-
-* **deps:** upgrade install-github-release-binary to v2 ([34dd4d4](https://github.com/EricCrosson/typescript-action/commit/34dd4d48eb837555cc600a348e2588668594ed75))
-
-## [1.0.5](https://github.com/EricCrosson/typescript-action/compare/v1.0.4...v1.0.5) (2023-01-10)
+## [1.0.6](https://github.com/semantic-release-action/typescript/compare/v1.0.5...v1.0.6) (2023-01-12)
 
 
 ### Bug Fixes
 
-* add --if-present to all npm script invocations ([2e5ee30](https://github.com/EricCrosson/typescript-action/commit/2e5ee30d31cc12f9e8e0b1a49f1b30eefb62506c))
+* **deps:** upgrade install-github-release-binary to v2 ([34dd4d4](https://github.com/semantic-release-action/typescript/commit/34dd4d48eb837555cc600a348e2588668594ed75))
 
-## [1.0.4](https://github.com/EricCrosson/typescript-action/compare/v1.0.3...v1.0.4) (2023-01-10)
-
-
-### Bug Fixes
-
-* use correct input name ([51a3e96](https://github.com/EricCrosson/typescript-action/commit/51a3e9627dc2651e09a7493883dabe90c150b22c))
-
-## [1.0.3](https://github.com/EricCrosson/typescript-action/compare/v1.0.2...v1.0.3) (2023-01-10)
+## [1.0.5](https://github.com/semantic-release-action/typescript/compare/v1.0.4...v1.0.5) (2023-01-10)
 
 
 ### Bug Fixes
 
-* use a single node version for the release workflow ([cac9d3c](https://github.com/EricCrosson/typescript-action/commit/cac9d3c3dcaead4a2995f7f483aa2ecae7300686))
+* add --if-present to all npm script invocations ([2e5ee30](https://github.com/semantic-release-action/typescript/commit/2e5ee30d31cc12f9e8e0b1a49f1b30eefb62506c))
 
-## [1.0.2](https://github.com/EricCrosson/typescript-action/compare/v1.0.1...v1.0.2) (2023-01-10)
-
-
-### Bug Fixes
-
-* always install host node_modules ([ca45c56](https://github.com/EricCrosson/typescript-action/commit/ca45c56cd94148c6376fb49da7d788b7933325a1))
-
-## [1.0.1](https://github.com/EricCrosson/typescript-action/compare/v1.0.0...v1.0.1) (2023-01-10)
+## [1.0.4](https://github.com/semantic-release-action/typescript/compare/v1.0.3...v1.0.4) (2023-01-10)
 
 
 ### Bug Fixes
 
-* default flag to true ([0d96c29](https://github.com/EricCrosson/typescript-action/commit/0d96c299d662d4153f336aaa25adfe438a480a32))
+* use correct input name ([51a3e96](https://github.com/semantic-release-action/typescript/commit/51a3e9627dc2651e09a7493883dabe90c150b22c))
+
+## [1.0.3](https://github.com/semantic-release-action/typescript/compare/v1.0.2...v1.0.3) (2023-01-10)
+
+
+### Bug Fixes
+
+* use a single node version for the release workflow ([cac9d3c](https://github.com/semantic-release-action/typescript/commit/cac9d3c3dcaead4a2995f7f483aa2ecae7300686))
+
+## [1.0.2](https://github.com/semantic-release-action/typescript/compare/v1.0.1...v1.0.2) (2023-01-10)
+
+
+### Bug Fixes
+
+* always install host node_modules ([ca45c56](https://github.com/semantic-release-action/typescript/commit/ca45c56cd94148c6376fb49da7d788b7933325a1))
+
+## [1.0.1](https://github.com/semantic-release-action/typescript/compare/v1.0.0...v1.0.1) (2023-01-10)
+
+
+### Bug Fixes
+
+* default flag to true ([0d96c29](https://github.com/semantic-release-action/typescript/commit/0d96c299d662d4153f336aaa25adfe438a480a32))
 
 # 1.0.0 (2023-01-10)
 
 
 ### Features
 
-* initial commit ([e53d4f7](https://github.com/EricCrosson/typescript-action/commit/e53d4f77ff33fb63586da20def46a3f57275756f))
+* initial commit ([e53d4f7](https://github.com/semantic-release-action/typescript/commit/e53d4f77ff33fb63586da20def46a3f57275756f))

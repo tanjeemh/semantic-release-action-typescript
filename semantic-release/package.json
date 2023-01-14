@@ -1,5 +1,5 @@
 {
-  "name": "@ericcrosson/typescript-action-semantic-release",
+  "name": "@semantic-release-action/typescript-semantic-release",
   "private": true,
   "dependencies": {
     "@semantic-release/changelog": "6.0.2",

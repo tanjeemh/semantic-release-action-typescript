@@ -37,7 +37,7 @@ jobs:
 
     steps:
       - name: Release
-        uses: EricCrosson/typescript-action/semantic-release@v1
+        uses: semantic-release-action/typescript/semantic-release@v1
         with:
           node-version: ${{ inputs.node-version }}
           test-command: ${{ inputs.test-command }}

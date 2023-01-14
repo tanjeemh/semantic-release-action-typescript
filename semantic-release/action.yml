@@ -80,7 +80,7 @@ runs:
     # - The "action" is this action.
     #
     # When we use the action's semantic-release configuration,
-    # install node_modules into an ephemeral .typescript-action directory.
+    # install node_modules into an ephemeral .semantic-release-action_typescript directory.
     # Add this directory and the semantic-release manifest to the global gitignore.
     #
     # This has the following benefits:
@@ -98,9 +98,9 @@ runs:
         else
           echo "::debug::Did not detect semantic-release configuration, using this action's built-in configuration"
           echo "host-configuration=false" >> "$GITHUB_OUTPUT"
-          echo "semantic_release=$GITHUB_WORKSPACE/.typescript-action/node_modules/.bin/semantic-release" >> "$GITHUB_ENV"
-          echo "node_workdir=$GITHUB_WORKSPACE/.typescript-action/" >> "$GITHUB_ENV"
-          mkdir -p "$GITHUB_WORKSPACE/.typescript-action/"
+          echo "semantic_release=$GITHUB_WORKSPACE/.semantic-release-action_typescript/node_modules/.bin/semantic-release" >> "$GITHUB_ENV"
+          echo "node_workdir=$GITHUB_WORKSPACE/.semantic-release-action_typescript/" >> "$GITHUB_ENV"
+          mkdir -p "$GITHUB_WORKSPACE/.semantic-release-action_typescript/"
         fi
       shell: bash
 
@@ -115,7 +115,7 @@ runs:
         : configure git to ignore semantic-release manifest
         mkdir -p "$HOME/.config/git"
         echo "/.releaserc.json" >> "$HOME/.config/git/ignore"
-        echo "/.typescript-action/" >> "$HOME/.config/git/ignore"
+        echo "/.semantic-release-action_typescript/" >> "$HOME/.config/git/ignore"
       shell: bash
 
     # If there is a .npmignore file, npm ignores the .gitignore, so add the ignore rules there too.
@@ -128,7 +128,7 @@ runs:
       run: |
         : configure npm to ignore semantic-release manifest
         echo "/.releaserc.json" >> ".npmignore"
-        echo "/.typescript-action/" >> ".npmignore"
+        echo "/.semantic-release-action_typescript/" >> ".npmignore"
       shell: bash
 
     - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false'
@@ -144,8 +144,8 @@ runs:
       uses: actions/cache@v3
       id: cache-action-node-modules
       with:
-        path: .typescript-action/node_modules
-        key: ${{ runner.os }}-node-action-${{ hashFiles('.typescript-action/package-lock.json') }}
+        path: .semantic-release-action_typescript/node_modules
+        key: ${{ runner.os }}-node-action-${{ hashFiles('.semantic-release-action_typescript/package-lock.json') }}
 
     - if: steps.is-semantic-release-configured.outputs.host-configuration == 'false' && steps.cache-action-node-modules.outputs.cache-hit != 'true'
       run: |

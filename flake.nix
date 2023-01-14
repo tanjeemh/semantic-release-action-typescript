@@ -1,5 +1,5 @@
 {
-  description = "GitHub Actions for Rust projects";
+  description = "GitHub Actions for TypeScript projects";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
