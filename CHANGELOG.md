@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/EricCrosson/typescript-action/compare/v1.0.6...v1.0.7) (2023-01-14)
+
+
+### Bug Fixes
+
+* **deps:** migrate to semantic-release-action/github-actions ([86c03b6](https://github.com/EricCrosson/typescript-action/commit/86c03b64248eae542967674db021255b4f686f6f))
+
 ## [1.0.6](https://github.com/EricCrosson/typescript-action/compare/v1.0.5...v1.0.6) (2023-01-12)
 
 
