@@ -5,7 +5,7 @@ on:
   workflow_call:
     inputs:
       node-versions:
-        description: Node.js
+        description: Node.js versions to use for testing
         type: string
         default: "['lts/-2', 'lts/-1', 'lts/*']"
       test-command:
