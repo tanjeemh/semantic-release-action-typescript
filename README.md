@@ -109,12 +109,12 @@ jobs:
 
 ### Inputs
 
-|       Input Parameter       |             Required              |                                          Default                                          | Description |
-| :-------------------------: | :-------------------------------: | :---------------------------------------------------------------------------------------: | ----------- |
+|       Input Parameter       |              Default              |                                        Description                                        |
+| :-------------------------: | :-------------------------------: | :---------------------------------------------------------------------------------------: |
 |        node-versions        | `"['lts/-2', 'lts/-1', 'lts/*']"` |                 Node.js versions to use for testing [Details](#toolchain)                 |
 |        test-command         |    `npm run --if-present test`    |   Shell command used to provide confidence in proposed changes [Details](#test-command)   |
 |  allow-postinstall-scripts  |              `false`              |   If false, uses `--ignore-scripts` with `npm ci` [Details](#allow-postinstall-scripts)   |
-| enable-semantic-release-git |               true                | Use [@semantic-release/git] in your release flow. [Details](#enable-semantic-release-git) |
+| enable-semantic-release-git |              `true`               | Use [@semantic-release/git] in your release flow. [Details](#enable-semantic-release-git) |
 
 #### enable-semantic-release-git
 
