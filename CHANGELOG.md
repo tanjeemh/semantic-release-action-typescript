@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/semantic-release-action/typescript/compare/v1.0.7...v1.0.8) (2023-01-14)
+
+
+### Bug Fixes
+
+* update project metadata ([5101277](https://github.com/semantic-release-action/typescript/commit/5101277f7120f1a25b76b5d0f25bc4fa4a779c63)), closes [#4](https://github.com/semantic-release-action/typescript/issues/4)
+
 ## [1.0.7](https://github.com/semantic-release-action/typescript/compare/v1.0.6...v1.0.7) (2023-01-14)
 
 
