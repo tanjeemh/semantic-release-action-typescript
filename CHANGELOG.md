@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/semantic-release-action/typescript/compare/v1.1.0...v1.1.1) (2023-01-14)
+
+
+### Bug Fixes
+
+* **ci:** invoke reusable workflow correctly ([b7e7be1](https://github.com/semantic-release-action/typescript/commit/b7e7be1b3df6e805c3084d60dcb2eb95fb4276a1))
+* **ci:** update semantic-release-action/github-actions to v4 ([67ce158](https://github.com/semantic-release-action/typescript/commit/67ce158ef561194b1a5958dbfbf5c11422286ee5))
+
 # [1.1.0](https://github.com/semantic-release-action/typescript/compare/v1.0.8...v1.1.0) (2023-01-14)
 
 
