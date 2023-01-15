@@ -12,7 +12,7 @@ on:
         description: Command used to test your TypeScript program
         required: false
         type: string
-        default: npm test
+        default: npm run --if-present test
       prevent-postinstall-scripts:
         description: Flag to prevent post-install scripts
         type: boolean
