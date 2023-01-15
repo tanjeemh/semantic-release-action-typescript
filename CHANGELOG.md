@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/semantic-release-action/typescript/compare/v1.1.1...v1.1.2) (2023-01-15)
+
+
+### Bug Fixes
+
+* only run tests if present ([45fa0e9](https://github.com/semantic-release-action/typescript/commit/45fa0e9a652c0d5bb6cda64dfda3e510bf3e68e7))
+
 ## [1.1.1](https://github.com/semantic-release-action/typescript/compare/v1.1.0...v1.1.1) (2023-01-14)
 
 
