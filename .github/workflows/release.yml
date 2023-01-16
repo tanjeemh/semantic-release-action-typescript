@@ -17,10 +17,10 @@ on:
         description: Flag to prevent post-install scripts
         type: boolean
         default: true
-      enable-semantic-release-git:
-        description: Use @semantic-release/git in your release flow. Only takes effect if the action semantic-release config is used.
+      disable-semantic-release-git:
+        description: Disable @semantic-release/git in your release flow. Only takes effect if the action semantic-release config is used.
         type: boolean
-        default: true
+        default: false
     secrets:
       npm-token:
         description: API token for writing to your npm registry
@@ -46,5 +46,5 @@ jobs:
           node-version: ${{ inputs.node-version }}
           test-command: ${{ inputs.test-command }}
           prevent-postinstall-scripts: ${{ inputs.prevent-postinstall-scripts }}
-          enable-semantic-release-git: ${{ inputs.enable-semantic-release-git }}
+          disable-semantic-release-git: ${{ inputs.disable-semantic-release-git }}
           npm-token: ${{ secrets.npm-token }}
