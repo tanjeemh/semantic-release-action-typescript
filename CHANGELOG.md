@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/semantic-release-action/typescript/compare/v2.0.0...v2.0.1) (2023-01-16)
+
+
+### Bug Fixes
+
+* **deps:** upgrade self-reference to latest ([24d0bb1](https://github.com/semantic-release-action/typescript/commit/24d0bb13a7d93c93ac9b82f973f4ea36c04fc89d))
+
 # [2.0.0](https://github.com/semantic-release-action/typescript/compare/v1.1.2...v2.0.0) (2023-01-16)
 
 
