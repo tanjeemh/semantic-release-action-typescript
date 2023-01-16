@@ -1,3 +1,13 @@
+# [2.0.0](https://github.com/semantic-release-action/typescript/compare/v1.1.2...v2.0.0) (2023-01-16)
+
+
+* fix!: negate logic of runtime flags controlling semantic-release ([7544b20](https://github.com/semantic-release-action/typescript/commit/7544b2089895af14d01326df360e506101bfc183))
+
+
+### BREAKING CHANGES
+
+* negate logic of runtime flags controlling semantic-release
+
 ## [1.1.2](https://github.com/semantic-release-action/typescript/compare/v1.1.1...v1.1.2) (2023-01-15)
 
 
