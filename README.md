@@ -38,11 +38,11 @@ jobs:
 
 ### Inputs
 
-|      Input Parameter      |              Default              | Description                                                                           |
-| :-----------------------: | :-------------------------------: | ------------------------------------------------------------------------------------- |
-|       node-versions       | `"['lts/-2', 'lts/-1', 'lts/*']"` | Node.js versions to use for testing [Details](#toolchain)                             |
-|       test-command        |    `npm run --if-present test`    | Shell command used to provide confidence in proposed changes [Details](#test-command) |
-| allow-postinstall-scripts |              `false`              | If false, uses `--ignore-scripts` with `npm ci` [Details](#allow-postinstall-scripts) |
+|      Input Parameter      |              Default              | Description                                                                            |
+| :-----------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
+|       node-versions       | `"['lts/-2', 'lts/-1', 'lts/*']"` | Node.js versions to use for testing. [Details](#toolchain)                             |
+|       test-command        |    `npm run --if-present test`    | Shell command used to provide confidence in proposed changes. [Details](#test-command) |
+| allow-postinstall-scripts |              `false`              | If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts) |
 
 #### node-versions
 
@@ -111,9 +111,9 @@ jobs:
 
 |       Input Parameter        |              Default              |                                          Description                                           |
 | :--------------------------: | :-------------------------------: | :--------------------------------------------------------------------------------------------: |
-|        node-versions         | `"['lts/-2', 'lts/-1', 'lts/*']"` |                   Node.js versions to use for testing [Details](#toolchain)                    |
-|         test-command         |    `npm run --if-present test`    |     Shell command used to provide confidence in proposed changes [Details](#test-command)      |
-|  allow-postinstall-scripts   |              `false`              |     If false, uses `--ignore-scripts` with `npm ci` [Details](#allow-postinstall-scripts)      |
+|        node-versions         | `"['lts/-2', 'lts/-1', 'lts/*']"` |                   Node.js versions to use for testing. [Details](#toolchain)                   |
+|         test-command         |    `npm run --if-present test`    |     Shell command used to provide confidence in proposed changes. [Details](#test-command)     |
+|  allow-postinstall-scripts   |              `false`              |     If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts)     |
 | disable-semantic-release-git |              `false`              | Disable [@semantic-release/git] in your release flow. [Details](#disable-semantic-release-git) |
 
 #### disable-semantic-release-git
@@ -126,9 +126,9 @@ This may be required with certain repository settings, for example when requirin
 
 ### Secrets
 
-|  Secret   | Required | Description                                  |
-| :-------: | :------: | -------------------------------------------- |
-| npm-token |   true   | npm registry API token [Details](#npm-token) |
+|  Secret   | Required | Description                                   |
+| :-------: | :------: | --------------------------------------------- |
+| npm-token |   true   | npm registry API token. [Details](#npm-token) |
 
 #### npm-token
 
