@@ -1,3 +1,10 @@
+## [2.0.5](https://github.com/semantic-release-action/typescript/compare/v2.0.4...v2.0.5) (2023-02-07)
+
+
+### Bug Fixes
+
+* update allow-postinstall-scripts code to match documentation ([7bc9008](https://github.com/semantic-release-action/typescript/commit/7bc9008f70b46c3b8e9feb2da70a44171158d845))
+
 ## [2.0.4](https://github.com/semantic-release-action/typescript/compare/v2.0.3...v2.0.4) (2023-02-07)
 
 
