@@ -19,8 +19,8 @@ inputs:
     required: false
     type: string
     default: npm run --if-present test
-  prevent-postinstall-scripts:
-    description: Flag to prevent post-install scripts
+  allow-postinstall-scripts:
+    description: Flag to permit post-install scripts
     type: boolean
     default: true
   disable-semantic-release-git:
@@ -57,9 +57,13 @@ runs:
     - if: steps.cache-host-node-modules.outputs.cache-hit != 'true'
       run: |
         : install npm dependencies
-        npm ci  --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
+        if [[ "$allow_postinstall_scripts" == true ]]; then
+          npm ci  --loglevel error
+        else
+          npm ci  --loglevel error --ignore-scripts
+        fi
       env:
-        ALLOW_POSTINSTALL_SCRIPTS: ${{ inputs.prevent-postinstall-scripts && '--ignore-scripts' || '' }}
+        allow_postinstall_scripts: ${{ inputs.allow-postinstall-scripts }}
       shell: bash
 
     # Serves as a type-checking opportunity, and allows the tests to run on pre-compiled JavaScript

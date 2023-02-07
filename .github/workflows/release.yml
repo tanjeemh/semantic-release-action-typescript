@@ -13,10 +13,10 @@ on:
         required: false
         type: string
         default: npm run --if-present test
-      prevent-postinstall-scripts:
-        description: Flag to prevent post-install scripts
+      allow-postinstall-scripts:
+        description: Flag to permit post-install scripts
         type: boolean
-        default: true
+        default: false
       disable-semantic-release-git:
         description: Disable @semantic-release/git in your release flow. Only takes effect if the action semantic-release config is used.
         type: boolean
@@ -42,6 +42,6 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
           test-command: ${{ inputs.test-command }}
-          prevent-postinstall-scripts: ${{ inputs.prevent-postinstall-scripts }}
+          allow-postinstall-scripts: ${{ inputs.allow-postinstall-scripts }}
           disable-semantic-release-git: ${{ inputs.disable-semantic-release-git }}
           npm-token: ${{ secrets.npm-token }}
