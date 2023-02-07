@@ -10,7 +10,7 @@ branding:
 # (which is only supported in composite actions)
 
 inputs:
-  node-version:
+  node-versions:
     description: Node.js
     type: string
     default: lts/*
@@ -43,7 +43,7 @@ runs:
     - name: Configure Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ inputs.node-version }}
+        node-versions: ${{ inputs.node-versions }}
         check-latest: true
         cache: npm
 

@@ -4,7 +4,7 @@ name: Release
 on:
   workflow_call:
     inputs:
-      node-version:
+      node-versions:
         description: Node.js
         type: string
         default: lts/*
@@ -40,7 +40,7 @@ jobs:
       - name: Release
         uses: semantic-release-action/typescript/semantic-release@v2
         with:
-          node-version: ${{ inputs.node-version }}
+          node-versions: ${{ inputs.node-versions }}
           test-command: ${{ inputs.test-command }}
           allow-postinstall-scripts: ${{ inputs.allow-postinstall-scripts }}
           disable-semantic-release-git: ${{ inputs.disable-semantic-release-git }}
