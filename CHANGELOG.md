@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/semantic-release-action/typescript/compare/v2.0.5...v2.0.6) (2023-02-07)
+
+
+### Bug Fixes
+
+* update node-version to match documentation ([87d72ed](https://github.com/semantic-release-action/typescript/commit/87d72edbf11b370ab4c5216ec5b66cb62b8a9dd0))
+
 ## [2.0.5](https://github.com/semantic-release-action/typescript/compare/v2.0.4...v2.0.5) (2023-02-07)
 
 
