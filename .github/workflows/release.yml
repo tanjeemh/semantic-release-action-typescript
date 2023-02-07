@@ -31,9 +31,6 @@ on:
 concurrency:
   group: ${{ github.workflow }}
 
-env:
-  RUST_BACKTRACE: 1
-
 jobs:
   release:
     name: Release
