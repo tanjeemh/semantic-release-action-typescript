@@ -1,3 +1,24 @@
+# [3.0.0](https://github.com/semantic-release-action/typescript/compare/v2.0.6...v3.0.0) (2023-02-19)
+
+
+* fix!: pass node-version properly to setup-node ([ba0fa52](https://github.com/semantic-release-action/typescript/commit/ba0fa52a891e09150378166a706de953073933ae))
+
+
+### BREAKING CHANGES
+
+* release workflow specifies test and release Node.js versions
+
+The release.yml workflow now accepts two inputs specifying Node.js
+version:
+
+1. `test-node-versions`
+2. `release-node-version`
+
+The former specifies which Node.js versions will be used to run
+the `build` and `test` npm scripts before invoking `semantic-release`,
+and the latter specifies which Node.js version to use to invoke
+`semantic-release`.
+
 ## [2.0.6](https://github.com/semantic-release-action/typescript/compare/v2.0.5...v2.0.6) (2023-02-07)
 
 
