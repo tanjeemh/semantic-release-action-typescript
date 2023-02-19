@@ -51,9 +51,9 @@ jobs:
       - if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: |
           : install npm dependencies
-          npm ci  --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
+          npm ci --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
         env:
-          # Negate the logic here because the value after && but not be falsy, otherwise the || will also execute
+          # Negate the logic here because the value after && must not be falsy, otherwise the || will also execute
           ALLOW_POSTINSTALL_SCRIPTS: ${{ !inputs.allow-postinstall-scripts && '--ignore-scripts' || '' }}
         shell: bash
 
