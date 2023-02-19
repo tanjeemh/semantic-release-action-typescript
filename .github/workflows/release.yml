@@ -4,19 +4,15 @@ name: Release
 on:
   workflow_call:
     inputs:
-      test-node-versions:
-        description: Node.js versions to use for testing
+      node-versions:
+        description: Node.js
         type: string
-        default: "['lts/-2', 'lts/-1', 'lts/*']"
+        default: lts/*
       test-command:
         description: Command used to test your TypeScript program
         required: false
         type: string
         default: npm run --if-present test
-      release-node-version:
-        description: Node.js version to use for releasing
-        type: string
-        default: lts/*
       allow-postinstall-scripts:
         description: Flag to permit post-install scripts
         type: boolean
@@ -36,62 +32,16 @@ concurrency:
   group: ${{ github.workflow }}
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: ${{ fromJson(inputs.test-node-versions) }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Configure Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          check-latest: true
-          cache: npm
-
-      - name: Cache npm dependencies
-        uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-
-      - if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          : install npm dependencies
-          npm ci --loglevel error "$ALLOW_POSTINSTALL_SCRIPTS"
-        env:
-          # Negate the logic here because the value after && must not be falsy, otherwise the || will also execute
-          ALLOW_POSTINSTALL_SCRIPTS: ${{ !inputs.allow-postinstall-scripts && '--ignore-scripts' || '' }}
-        shell: bash
-
-      - run: |
-          : compile TypeScript
-          npm run --if-present build
-        shell: bash
-
-      - run: |
-          : test
-          ${{ inputs.test-command }}
-        shell: bash
-
   release:
     name: Release
     runs-on: ubuntu-latest
 
-    needs:
-      - test
-
     steps:
       - name: Release
-        uses: semantic-release-action/typescript/semantic-release@v3
+        uses: semantic-release-action/typescript/semantic-release@v2
         with:
-          node-version: ${{ inputs.release-node-version }}
+          node-versions: ${{ inputs.node-versions }}
+          test-command: ${{ inputs.test-command }}
           allow-postinstall-scripts: ${{ inputs.allow-postinstall-scripts }}
           disable-semantic-release-git: ${{ inputs.disable-semantic-release-git }}
           npm-token: ${{ secrets.npm-token }}

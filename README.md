@@ -33,7 +33,7 @@ on:
 
 jobs:
   test:
-    uses: semantic-release-action/typescript/.github/workflows/ci.yml@v3
+    uses: semantic-release-action/typescript/.github/workflows/ci.yml@v2
 ```
 
 ### Inputs
@@ -102,7 +102,7 @@ on:
 
 jobs:
   release:
-    uses: semantic-release-action/typescript/.github/workflows/release.yml@v3
+    uses: semantic-release-action/typescript/.github/workflows/release.yml@v2
     secrets:
       npm-token: ${{ secrets.NPM_TOKEN }}
 ```
