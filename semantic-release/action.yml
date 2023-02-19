@@ -21,11 +21,9 @@ inputs:
     default: npm run --if-present test
   allow-postinstall-scripts:
     description: Flag to permit post-install scripts
-    type: boolean
     default: true
   disable-semantic-release-git:
     description: Disable @semantic-release/git in your release flow. Only takes effect if the action semantic-release config is used.
-    type: boolean # This is ignored, you're really passing a string
     default: false
   npm-token:
     description: API token for writing to your npm registry
