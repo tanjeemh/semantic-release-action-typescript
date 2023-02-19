@@ -40,7 +40,7 @@ jobs:
 
 |      Input Parameter      |              Default              | Description                                                                            |
 | :-----------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
-|       node-versions       | `"['lts/-2', 'lts/-1', 'lts/*']"` | Node.js versions to use for testing. [Details](#toolchain)                             |
+|       node-versions       | `"['lts/-2', 'lts/-1', 'lts/*']"` | Node.js versions to use for testing. [Details](#node-versions)                         |
 |       test-command        |    `npm run --if-present test`    | Shell command used to provide confidence in proposed changes. [Details](#test-command) |
 | allow-postinstall-scripts |              `false`              | If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts) |
 
@@ -111,10 +111,15 @@ jobs:
 
 |       Input Parameter        |              Default              |                                          Description                                           |
 | :--------------------------: | :-------------------------------: | :--------------------------------------------------------------------------------------------: |
-|        node-versions         | `"['lts/-2', 'lts/-1', 'lts/*']"` |                   Node.js versions to use for testing. [Details](#toolchain)                   |
+|      test-node-versions      | `"['lts/-2', 'lts/-1', 'lts/*']"` |                 Node.js versions to use for testing. [Details](#node-versions)                 |
 |         test-command         |    `npm run --if-present test`    |     Shell command used to provide confidence in proposed changes. [Details](#test-command)     |
+|     release-node-version     |              `lts/*`              |             Node.js version to use for releasing. [Details](#release-node-version)             |
 |  allow-postinstall-scripts   |              `false`              |     If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts)     |
 | disable-semantic-release-git |              `false`              | Disable [@semantic-release/git] in your release flow. [Details](#disable-semantic-release-git) |
+
+#### release-node-version
+
+Singular Node.js version on which to invoke semantic-release.
 
 #### disable-semantic-release-git
 
