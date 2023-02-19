@@ -10,15 +10,10 @@ branding:
 # (which is only supported in composite actions)
 
 inputs:
-  node-versions:
-    description: Node.js
+  release-node-version:
+    description: Node.js version to use for releasing
     type: string
     default: lts/*
-  test-command:
-    description: Command used to test your TypeScript program
-    required: false
-    type: string
-    default: npm run --if-present test
   allow-postinstall-scripts:
     description: Flag to permit post-install scripts
     default: true
@@ -41,7 +36,7 @@ runs:
     - name: Configure Node.js
       uses: actions/setup-node@v3
       with:
-        node-versions: ${{ inputs.node-versions }}
+        node-version: ${{ inputs.release-node-versions }}
         check-latest: true
         cache: npm
 
@@ -68,11 +63,6 @@ runs:
     - run: |
         : compile TypeScript
         npm run --if-present build
-      shell: bash
-
-    - run: |
-        : test
-        ${{ inputs.test-command }}
       shell: bash
 
     - name: Install is-semantic-release-configured
