@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/semantic-release-action/typescript/compare/v3.0.0...v3.0.1) (2023-03-25)
+
+
+### Bug Fixes
+
+* **deps:** update semantic-release monorepo ([e203a3e](https://github.com/semantic-release-action/typescript/commit/e203a3e23c90e17a0b7a818f8287144ab2ba272c))
+
 # [3.0.0](https://github.com/semantic-release-action/typescript/compare/v2.0.6...v3.0.0) (2023-02-19)
 
 
