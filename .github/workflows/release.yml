@@ -37,6 +37,7 @@ concurrency:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
 
     strategy:
