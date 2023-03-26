@@ -1,3 +1,11 @@
+## [3.0.3](https://github.com/semantic-release-action/typescript/compare/v3.0.2...v3.0.3) (2023-03-26)
+
+
+### Bug Fixes
+
+* remove redundant words from step name ([7e220b9](https://github.com/semantic-release-action/typescript/commit/7e220b9d37c9be5970f2cfc103b3457a66258e29))
+* use consistent job name ([f03d69d](https://github.com/semantic-release-action/typescript/commit/f03d69d5de8c2c07910f562d4a757826dd992fff))
+
 ## [3.0.2](https://github.com/semantic-release-action/typescript/compare/v3.0.1...v3.0.2) (2023-03-25)
 
 
