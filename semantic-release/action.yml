@@ -12,11 +12,10 @@ branding:
 inputs:
   release-node-version:
     description: Node.js version to use for releasing
-    type: string
     default: lts/*
   allow-postinstall-scripts:
     description: Flag to permit post-install scripts
-    default: true
+    default: false
   disable-semantic-release-git:
     description: Disable @semantic-release/git in your release flow. Only takes effect if the action semantic-release config is used.
     default: false
