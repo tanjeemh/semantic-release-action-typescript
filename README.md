@@ -137,4 +137,4 @@ This may be required with certain repository settings, for example when requirin
 
 #### npm-token
 
-API token with write permission for publishing your crate to your target registry.
+API token with write permission for publishing your package to your target registry.
