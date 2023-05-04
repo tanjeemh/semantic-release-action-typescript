@@ -56,7 +56,7 @@ See [here] for supported version syntax.
 #### test-command
 
 The shell command used to provide confidence in the proposed changes.
-Defaults to `cargo test`, but you can override this to `cargo check` or anything else.
+Defaults to `npm run --if-present test`, but you can override this to any shell command.
 
 #### allow-postinstall-scripts
 
