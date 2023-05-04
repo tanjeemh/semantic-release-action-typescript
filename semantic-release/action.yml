@@ -49,13 +49,10 @@ runs:
     - if: steps.cache-host-node-modules.outputs.cache-hit != 'true'
       run: |
         : install npm dependencies
-        if [[ "$allow_postinstall_scripts" == true ]]; then
-          npm ci  --loglevel error
-        else
-          npm ci  --loglevel error --ignore-scripts
-        fi
+        npm ci  --loglevel error "$allow_postinstall_scripts"
       env:
-        allow_postinstall_scripts: ${{ inputs.allow-postinstall-scripts }}
+        # In a composite action, inputs are coerced into strings
+        allow_postinstall_scripts: ${{ inputs.allow-postinstall-scripts != 'true' && '--ignore-scripts' || '' }}
       shell: bash
 
     # Serves as a type-checking opportunity, and allows the tests to run on pre-compiled JavaScript
