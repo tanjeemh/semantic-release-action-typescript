@@ -49,7 +49,7 @@ runs:
     - if: steps.cache-host-node-modules.outputs.cache-hit != 'true'
       run: |
         : install npm dependencies
-        npm ci  --loglevel error "$allow_postinstall_scripts"
+        npm ci --loglevel error "$allow_postinstall_scripts"
       env:
         # In a composite action, inputs are coerced into strings
         allow_postinstall_scripts: ${{ inputs.allow-postinstall-scripts != 'true' && '--ignore-scripts' || '' }}
