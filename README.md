@@ -40,7 +40,7 @@ jobs:
 
 |      Input Parameter      |              Default              | Description                                                                            |
 | :-----------------------: | :-------------------------------: | -------------------------------------------------------------------------------------- |
-|       node-versions       | `"['lts/-2', 'lts/-1', 'lts/*']"` | Node.js versions to use for testing. [Details](#node-versions)                         |
+|       node-versions       | `'["lts/-2", "lts/-1", "lts/*"]'` | Node.js versions to use for testing. [Details](#node-versions)                         |
 |       test-command        |    `npm run --if-present test`    | Shell command used to provide confidence in proposed changes. [Details](#test-command) |
 | allow-postinstall-scripts |              `false`              | If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts) |
 
@@ -111,7 +111,7 @@ jobs:
 
 |       Input Parameter        |              Default              |                                          Description                                           |
 | :--------------------------: | :-------------------------------: | :--------------------------------------------------------------------------------------------: |
-|      test-node-versions      | `"['lts/-2', 'lts/-1', 'lts/*']"` |                 Node.js versions to use for testing. [Details](#node-versions)                 |
+|      test-node-versions      | `'["lts/-2", "lts/-1", "lts/*"]'` |                 Node.js versions to use for testing. [Details](#node-versions)                 |
 |         test-command         |    `npm run --if-present test`    |     Shell command used to provide confidence in proposed changes. [Details](#test-command)     |
 |     release-node-version     |              `lts/*`              |             Node.js version to use for releasing. [Details](#release-node-version)             |
 |  allow-postinstall-scripts   |              `false`              |     If false, uses `--ignore-scripts` with `npm ci`. [Details](#allow-postinstall-scripts)     |
