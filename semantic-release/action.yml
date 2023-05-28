@@ -55,7 +55,7 @@ runs:
         allow_postinstall_scripts: ${{ inputs.allow-postinstall-scripts != 'true' && '--ignore-scripts' || '' }}
       shell: bash
 
-    # Serves as a type-checking opportunity, and allows the tests to run on pre-compiled JavaScript
+    # Compile JavaScript to be released
     - run: |
         : compile TypeScript
         npm run --if-present build
