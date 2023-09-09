@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/semantic-release-action/typescript/compare/v3.0.7...v3.0.8) (2023-09-09)
+
+
+### Performance Improvements
+
+* use jq to modify semantic-release manifest ([70d11de](https://github.com/semantic-release-action/typescript/commit/70d11ded7dcab21d9a9d30b53abd691268dfd294))
+
 ## [3.0.7](https://github.com/semantic-release-action/typescript/compare/v3.0.6...v3.0.7) (2023-07-13)
 
 
