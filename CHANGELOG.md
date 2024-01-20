@@ -1,3 +1,10 @@
+## [3.0.12](https://github.com/semantic-release-action/typescript/compare/v3.0.11...v3.0.12) (2024-01-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency semantic-release to v22.0.12 ([65e8581](https://github.com/semantic-release-action/typescript/commit/65e85811c785b513d8e5ae14dec374d99cd9f10b))
+
 ## [3.0.11](https://github.com/semantic-release-action/typescript/compare/v3.0.10...v3.0.11) (2024-01-20)
 
 
