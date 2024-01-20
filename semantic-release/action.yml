@@ -35,7 +35,7 @@ runs:
     - name: Configure Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ inputs.release-node-versions }}
+        node-version: ${{ inputs.release-node-version }}
         check-latest: true
         cache: npm
 
