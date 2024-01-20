@@ -1,3 +1,10 @@
+## [3.0.11](https://github.com/semantic-release-action/typescript/compare/v3.0.10...v3.0.11) (2024-01-20)
+
+
+### Bug Fixes
+
+* install expected Node.js version ([9b89b46](https://github.com/semantic-release-action/typescript/commit/9b89b4610fd1939ae14cf232494afe7c7ee57f0f))
+
 ## [3.0.10](https://github.com/semantic-release-action/typescript/compare/v3.0.9...v3.0.10) (2023-12-06)
 
 
