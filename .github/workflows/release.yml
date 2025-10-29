@@ -89,10 +89,17 @@ jobs:
       - test
 
     steps:
-      - name: Release
-        uses: semantic-release-action/typescript/semantic-release@v3
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
-          release-node-version: ${{ inputs.release-node-version }}
-          allow-postinstall-scripts: ${{ inputs.allow-postinstall-scripts }}
-          disable-semantic-release-git: ${{ inputs.disable-semantic-release-git }}
-          npm-token: ${{ secrets.npm-token }}
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - name: Release using semantic-release/npm@13.1.0-beta.1
+        run: |
+          echo "TEST: Installing semantic-release/npm@13.1.0-beta.1..."
+          npm install --no-save semantic-release @semantic-release/npm@13.1.0-beta.1
+          echo "TEST: Running semantic-release --dry-run..."
+          npx semantic-release --dry-run
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.npm-token }}

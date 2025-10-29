@@ -4,6 +4,10 @@
 
 [build status]: https://github.com/semantic-release-action/typescript/actions/workflows/host_release.yml/badge.svg?event=push
 
+#### This repository is to be used solely for testing purposes and not for public production and development! Forked from [semantic-release-action/typescript]
+
+[semantic-release-action/typescript]: https://github.com/semantic-release-action/typescript
+
 This repository contains _extremely opinionated_ reusable GitHub Actions workflows providing CI and CD for TypeScript projects.
 
 This GitHub Action is intended to reduce duplication among very rigidly organized projects.
